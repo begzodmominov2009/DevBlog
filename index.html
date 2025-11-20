@@ -10,6 +10,17 @@
 
 <body class="bg-gray-100">
 
+    <div id="loading" class="fixed z-1500 w-full h-full bg-[white] flex items-center justify-center">
+        <div class="relative">
+            <img src="./assets/loading/loading.svg" alt="loading">
+            <div>
+                <p class="absolute top-13 left-9.5 text-[12px] text-[#e5b636]">Loading...</p>
+            </div>
+        </div>
+
+    </div>
+
+
     <header class="bg-[white] fixed top-0 w-full pt-[10px] z-1">
         <div
             class="2xl:container 2xl:mx-auto border-t-[1px] px-[20px] lg:pl-[330px] py-[17px] border-gray-200 border-b-[1px]">
@@ -86,7 +97,7 @@
                     5K
                 </div>
             </div>
-            <div class="flex cursor-pointer items-center gap-2  
+            <a href="./Pages/albums.html" class="flex cursor-pointer items-center gap-2  
                     w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
                     shadow-sm">
@@ -103,7 +114,7 @@
                 <div class="bg-gray-200 py-[1px] px-[5px] rounded-lg text-[12px] text-gray-700">
                     100
                 </div>
-            </div>
+            </a>
             <div class="flex cursor-pointer items-center gap-2  
                     w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
@@ -157,21 +168,25 @@
         </div>
     </aside>
 
-     <main>
+    <main>
         <div class="2xl:container px-[20px] 2xl:mx-auto">
-            <div id="feed-posts" class="pl-[0px] lg:pl-[250px] pt-[127px]  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div id="feed-posts"
+                class="pl-[0px] lg:pl-[250px] pt-[127px]  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
             </div>
         </div>
-    </main> 
+    </main>
 
     <div id="modal-camments" class="flex mt-[200px] items-center justify-center">
-        <div id="users-commnets" class="bg-[white] hidden max-h-[300px] cursor-pointer overflow-y-scroll rounded-lg max-w-[400px] w-full p-4">
+        <div id="users-commnets"
+            class="bg-[white] hidden max-h-[300px] cursor-pointer overflow-y-scroll rounded-lg max-w-[400px] w-full p-4">
 
         </div>
+    </div>
 
     <script src="./Js/data.js"></script>
     <script src="./Js/commnets.js"></script>
+    <script src="./Js/loading.js"></script>
     <script src="./Js/aside.js"></script>
     <script src="./Js/main.js"></script>
 </body>

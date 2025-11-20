@@ -9,6 +9,15 @@
 </head>
 
 <body class="bg-gray-100">
+    <div id="loading" class="fixed z-1500 w-full h-full bg-[white] flex items-center justify-center">
+        <div class="relative">
+            <img src="../assets/loading/loading.svg" alt="loading">
+            <div>
+                <p class="absolute top-13 left-9.5 text-[12px] text-[#e5b636]">Loading...</p>
+            </div>
+        </div>
+
+    </div>
 
     <header class="bg-[white] fixed top-0 w-full pt-[10px] z-1">
         <div
@@ -36,7 +45,7 @@
             </div>
         </div>
     </header>
-    
+
     <aside id="aside"
         class="fixed translate-x-[-100%] lg:translate-x-[0%] z-1 w-full top-0 max-w-[250px] h-screen w-full bg-white border-r-[1px] mt-[10px] border-gray-200">
         <div class="flex items-center gap-2 border-t-[1px] border-gray-200 border-b-[1px] py-[25px] px-[30px]">
@@ -93,7 +102,7 @@
                     5K
                 </div>
             </div>
-            <div class="flex cursor-pointer items-center gap-2  
+            <a href="./albums.html" class="flex cursor-pointer items-center gap-2  
                     w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
                     shadow-sm">
@@ -110,7 +119,7 @@
                 <div class="bg-gray-200 py-[1px] px-[5px] rounded-lg text-[12px] text-gray-700">
                     100
                 </div>
-            </div>
+            </a>
             <div class="flex cursor-pointer items-center gap-2  
                     w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
@@ -176,6 +185,7 @@
     <script src=" ../Js/data.js"></script>
     <script src="../Js/aside.js"></script>
     <script src="../Js/single.js"></script>
+    <script src="../Js/loading.js"></script>
     <script src="../Js/user.js"></script>
     <script src="../Js/main.js"></script>
 </body>
