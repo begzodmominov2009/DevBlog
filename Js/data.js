@@ -7,7 +7,7 @@ function getData(url, callback) {
         if (request.status === 200 && request.readyState === 4) {
             let data = request.response;
             let datas = JSON.parse(data)
-            callback(datas)
+            callback(datas)            
         }
     }
 }

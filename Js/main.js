@@ -1,9 +1,10 @@
 let feedPosts = document.getElementById("feed-posts")
-
-
+let likes = JSON.parse(localStorage.getItem("likes") || "[]")
+localStorage.setItem("likes", JSON.stringify(likes))
 getData("posts", (res) => {
     res.map((el) => {
-        feedPosts.innerHTML += `
+        fetch(`https://jsonplaceholder.typicode.com/users/${el?.id}`).then((res1) => (res1.json())).then((data1) => (
+            feedPosts.innerHTML += `
               <div class="bg-[white] rounded-lg">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
@@ -12,8 +13,8 @@ getData("posts", (res) => {
                                     L
                                 </div>
                                 <div>
-                                    <h1>Leanne Graham</h1>
-                                    <p>@Bret</p>
+                                    <h1>${data1?.name}</h1>
+                                    <p>${data1?.username}</p>
                                 </div>
                             </div>
                             <div>
@@ -28,6 +29,17 @@ getData("posts", (res) => {
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-4">
+                                   ${likes.find((item) => item.id === el.id)
+                          ? `<button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="red" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-heart h-6 w-6 text-gray-900"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
+                                    </path>
+                                </svg>
+                                </button>` : `<button onClick="addToLiks(${el.id})">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-heart h-6 w-6 text-gray-900"
@@ -36,6 +48,10 @@ getData("posts", (res) => {
                                         d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
                                     </path>
                                 </svg>
+                                </button>`
+            }
+
+                              <button id="view-comments">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-message-circle h-6 w-6 text-gray-900"
@@ -44,6 +60,7 @@ getData("posts", (res) => {
                                         d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719">
                                     </path>
                                 </svg>
+                              </button>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round"
@@ -76,8 +93,12 @@ getData("posts", (res) => {
                         </div>
                     </div>
                 </div>
-            `
+            `))
+
     })
 })
-
-
+window.addToLikes = function (id) {
+    likes.push({ id });    // <-- ENG MUHIM QISM
+    localStorage.setItem("likes", JSON.stringify(likes));
+    location.reload();     // UI yangilanishi uchun
+}
