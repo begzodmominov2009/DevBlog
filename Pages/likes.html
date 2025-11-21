@@ -9,6 +9,7 @@
 </head>
 
 <body class="bg-gray-100">
+
     <div id="loading" class="fixed z-1500 w-full h-full bg-[white] flex items-center justify-center">
         <div class="relative">
             <img src="../assets/loading/loading.svg" alt="loading">
@@ -21,18 +22,21 @@
 
     <header class="bg-[white] fixed top-0 w-full pt-[10px] z-1">
         <div
-            class="2xl:container 2xl:mx-auto border-t-[1px] px-[10px] lg:pl-[330px] py-[17px] border-gray-200 border-b-[1px]">
+            class="2xl:container 2xl:mx-auto border-t-[1px] px-[20px] lg:pl-[280px] py-[17px] border-gray-200 border-b-[1px]">
             <div class="flex items-center justify-between">
-                <a href="./users.html"
-                    class="flex gorup hover:bg-gray-100 max-w-[150px] p-2 rounded-lg w-full items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-arrow-left h-4 w-4" aria-hidden="true">
-                        <path d="m12 19-7-7 7-7"></path>
-                        <path d="M19 12H5"></path>
-                    </svg>
-                    <h1 class="text-[14px] font-bold">Back to Users</h1>
-                </a>
+                <div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+                            fill="#1f1f1f">
+                            <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                        </svg>
+                        <p cla>Back</p>
+                    </div>
+                    <div class="text-center lg:text-left">
+                        <h1 class="text-[26px] font-bold">Likes</h1>
+                        <p><span id="likes-number">10</span>members</p>
+                    </div>
+                </div>
                 <button id="aside-toggle"
                     class="inline-flex items-center justify-center cursor-pointer flex lg:hidden gap-2 whitespace-nowrap text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg:not([class*='size-'])]:size-4 shrink-0 [&amp;_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive text-primary-foreground size-9 rounded-md bg-white shadow-lg hover:bg-gray-50"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -46,8 +50,9 @@
         </div>
     </header>
 
+
     <aside id="aside"
-        class="fixed translate-x-[-100%] lg:translate-x-[0%] z-1 w-full top-0 max-w-[250px] h-screen w-full bg-white border-r-[1px] mt-[10px] border-gray-200">
+        class="translate-x-[-100%] lg:translate-x-[0%] fixed z-1 w-full top-0 max-w-[250px] h-screen w-full bg-white border-r-[1px] mt-[10px] border-gray-200">
         <div class="flex items-center gap-2 border-t-[1px] border-gray-200 border-b-[1px] py-[25px] px-[30px]">
             <span
                 class="w-9 h-9 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center">
@@ -138,12 +143,12 @@
                 </div>
             </div>
             <a href="./users.html" class="flex cursor-pointer items-center gap-2  
-                     w-full flex items-center justify-between px-4 py-3 rounded-xl
+                    w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
-                    bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm">
+                    shadow-sm">
                 <div class="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-users h-5 w-5 text-gray-600" aria-hidden="true">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                         <path d="M16 3.128a4 4 0 0 1 0 7.744"></path>
@@ -157,25 +162,26 @@
                 </div>
             </a>
             <a href="./settings.html" class="flex cursor-pointer items-center gap-2  
-                    w-full flex items-center justify-between px-4 py-3 rounded-xl
+                     w-full flex items-center justify-between px-4 py-3 rounded-xl
                     transition-all duration-200
-                    shadow-sm">
+                    bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-sm">
                 <div class="flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#00000">
+                        fill="#ffff">
                         <path
                             d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
                     </svg>
                     <p>Setting</p>
                 </div>
+
             </a>
         </div>
     </aside>
 
     <main>
-        <div class="2xl:container px-[0px] ml-[0px] lg:ml-[225px] 2xl:mx-auto mt-[80px]">
-            <div id="single-card" class="mx-auto p-4 space-y-6 px-[20px] lg:px-[100px]">
-
+        <div class="2xl:container px-[20px] 2xl:mx-auto">
+            <div id="likes-card"
+                class="pl-[0px] lg:pl-[250px] pt-[127px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
             </div>
         </div>
@@ -183,8 +189,8 @@
 
     <script src=" ../Js/data.js"></script>
     <script src="../Js/aside.js"></script>
-    <script src="../Js/single.js"></script>
     <script src="../Js/loading.js"></script>
+    <script src="../Js/likes.js"></script>
     <script src="../Js/user.js"></script>
     <script src="../Js/main.js"></script>
 </body>

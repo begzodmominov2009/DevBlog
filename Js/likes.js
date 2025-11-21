@@ -1,15 +1,15 @@
-let feedPosts = document.getElementById("feed-posts")
+let likesNumber = document.getElementById("likes-number")
+let likesCard = document.getElementById("likes-card")
 let likes = JSON.parse(localStorage.getItem("likes") || "[]")
-localStorage.setItem("likes", JSON.stringify(likes))
-let posts = []
-function getDatas() {
-    feedPosts.innerHTML = ""
-    getData("posts", (res) => {
-        posts = res
-        res.map((el) => {
-            fetch(`https://jsonplaceholder.typicode.com/users/${el?.id}`).then((res1) => (res1.json())).then((data1) => (
-                feedPosts.innerHTML += `
-              <div class="bg-[white] rounded-lg">
+likesNumber.textContent = likes.length
+
+
+function showLikes(content, data) {
+    content.innerHTML = ""
+    data.map((el) => {
+        fetch(`https://jsonplaceholder.typicode.com/users/${el?.id}`).then((res1) => res1.json()).then((data1) => {
+            content.innerHTML += `
+                      <div class="bg-[white] rounded-lg">
                     <div class="p-6">
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-2">
@@ -34,7 +34,7 @@ function getDatas() {
                         <div class="flex items-center justify-between">
                             <div class="flex items-center gap-4">
                                    ${likes.find((item) => item.id === el.id)
-                    ? `<button onClick="removeLikes(${el.id})">
+                    ? `<button class="cursor-pointer" onClick="removeLikes(${el.id})">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="red" stroke="red" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-heart h-6 w-6 text-gray-900"
@@ -43,7 +43,7 @@ function getDatas() {
                                         d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
                                     </path>
                                 </svg>
-                                </button>` : `<button onClick="addToLiks(${el.id})">
+                                </button>` : `<button class="cursor-pointer" onClick="addToLiks(${el.id})">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-heart h-6 w-6 text-gray-900"
@@ -97,20 +97,22 @@ function getDatas() {
                         </div>
                     </div>
                 </div>
-            `))
-
+        `
         })
     })
 }
-getDatas()
+showLikes(likesCard, likes)
+
 function addToLiks(id) {
     let item = posts.find((el) => el.id === id)
     likes.push(item)
+    likesNumber.textContent = likes.length
     localStorage.setItem("likes", JSON.stringify(likes))
-    getDatas()
+    showLikes(likesCard, likes)
 }
 function removeLikes(id) {
     likes = likes.filter((el) => el.id !== id)
+    likesNumber.textContent = likes.length
     localStorage.setItem("likes", JSON.stringify(likes))
-    getDatas()
+    showLikes(likesCard, likes)
 }
